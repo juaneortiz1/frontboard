@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './styles/StudentForm.css';
-import './styles/StudentTable.css';
+
 
 import StudentForm from './components/StudentForm';
 import StudentTable from './components/StudentTable';
@@ -33,7 +32,7 @@ function App() {
           setPoints((prevPoints) => [...prevPoints, newPoint]);
 
           try {
-            const response = await fetch('http://localhost:8080/api/points', {
+            const response = await fetch('http://18.212.94.77:8080/api/points', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -77,7 +76,7 @@ function App() {
 
   const fetchPoints = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/points');
+      const response = await fetch('http://18.212.94.77:8080/api/points');
       if (response.ok) {
         const data = await response.json();
         setPoints(data);
@@ -91,7 +90,7 @@ function App() {
 
   const handleClearBoard = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/points', {
+      const response = await fetch('http://18.212.94.77:8080/api/points', {
         method: 'DELETE',
       });
       if (response.ok) {
